@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
 
 import Card from '../components/Card'
 import Input from '../components/Input'
@@ -15,38 +15,42 @@ const StartGame = props => {
     }
 
     return (
-        <View style={styles.screen}>
-            <Text style={styles.headerText}>Start a New Game</Text>
-            <Card style={styles.inputFormContainer}>
-                <Input
-                    style={styles.textInput}
-                    placeholder="Select a Number"
-                    keyboardType="number-pad"
-                    maxLength={2}
-                    onChangeText={numberInputHandler}
-                    value={enteredValue}
-                />
-                <View style={styles.buttonContainer}>
-                    <AwesomeButtonRick
-                        title="Reset"
-                        onPress={() => { }}
-                        type="secondary"
-                        style={styles.resetButton}
-                    >
-                        Reset
-                    </AwesomeButtonRick>
+        <TouchableWithoutFeedback
+            onPress={() => { Keyboard.dismiss() }}
+        >
+            <View style={styles.screen}>
+                <Text style={styles.headerText}>Start a New Game</Text>
+                <Card style={styles.inputFormContainer}>
+                    <Input
+                        style={styles.textInput}
+                        placeholder="Select a Number"
+                        keyboardType="number-pad"
+                        maxLength={2}
+                        onChangeText={numberInputHandler}
+                        value={enteredValue}
+                    />
+                    <View style={styles.buttonContainer}>
+                        <AwesomeButtonRick
+                            title="Reset"
+                            onPress={() => { }}
+                            type="secondary"
+                            style={styles.resetButton}
+                        >
+                            Reset
+                        </AwesomeButtonRick>
 
-                    <AwesomeButtonRick
-                        title="Confirm"
-                        onPress={() => { }}
-                        type="primary"
-                        style={styles.confirmButton}
-                    >
-                        Confirm
-                    </AwesomeButtonRick>
-                </View>
-            </Card>
-        </View >
+                        <AwesomeButtonRick
+                            title="Confirm"
+                            onPress={() => { }}
+                            type="primary"
+                            style={styles.confirmButton}
+                        >
+                            Confirm
+                        </AwesomeButtonRick>
+                    </View>
+                </Card>
+            </View >
+        </TouchableWithoutFeedback>
     )
 }
 
