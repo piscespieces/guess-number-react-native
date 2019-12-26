@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, TextInput } from 'react-native'
 
 const Input = props => {
-    return <TextInput style={{ ...styles.input, ...props.style }} placeholder={props.placeholder} />
+    return <TextInput {...props} style={{ ...styles.input, ...props.style }} />
 }
 
 export default Input

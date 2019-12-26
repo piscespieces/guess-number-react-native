@@ -11,8 +11,10 @@ const StartGame = props => {
             <Text style={styles.headerText}>Start a New Game</Text>
             <Card style={styles.inputFormContainer}>
                 <Input
-                    placeholder="Select a Number"
                     style={styles.textInput}
+                    placeholder="Select a Number"
+                    keyboardType="number-pad"
+                    maxLength={2}
                 />
                 <View style={styles.buttonContainer}>
                     <AwesomeButtonRick
