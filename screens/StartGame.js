@@ -1,13 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
+import Card from '../components/Card'
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 const StartGame = props => {
     return (
         <View style={styles.screen}>
             <Text style={styles.headerText}>Start a New Game</Text>
-            <View style={styles.inputFormContainer}>
+            <Card style={styles.inputFormContainer}>
                 <TextInput
                     placeholder="Select a Number"
                     style={styles.textInput}
@@ -31,7 +32,7 @@ const StartGame = props => {
                         Confirm
                     </AwesomeButtonRick>
                 </View>
-            </View>
+            </Card>
         </View >
     )
 }
@@ -51,14 +52,6 @@ const styles = StyleSheet.create({
     inputFormContainer: {
         width: '100%',
         alignItems: 'center',
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 6,
-        shadowOpacity: 0.26,
-        backgroundColor: 'white',
-        padding: 20,
-        borderRadius: 10,
-        elevation: 8, //For Android Shadows
     },
     textInput: {
         width: '80%',
