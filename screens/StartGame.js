@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
 import Card from '../components/Card'
+import Input from '../components/Input'
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 const StartGame = props => {
@@ -9,7 +10,7 @@ const StartGame = props => {
         <View style={styles.screen}>
             <Text style={styles.headerText}>Start a New Game</Text>
             <Card style={styles.inputFormContainer}>
-                <TextInput
+                <Input
                     placeholder="Select a Number"
                     style={styles.textInput}
                 />
@@ -55,12 +56,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         width: '80%',
-        height: 30,
         marginVertical: 30,
-        fontSize: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#E0E0E0',
-        textAlign: 'center',
     },
     buttonContainer: {
         flexDirection: 'row',
