@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
 import Card from '../components/Card'
@@ -6,6 +6,14 @@ import Input from '../components/Input'
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 const StartGame = props => {
+    const [enteredValue, setEnteredValue] = useState('')
+
+    const numberInputHandler = textInput => {
+        return (
+            setEnteredValue(textInput.replace(/[^0-9]/g, '')) //To sanitize
+        )
+    }
+
     return (
         <View style={styles.screen}>
             <Text style={styles.headerText}>Start a New Game</Text>
@@ -15,6 +23,8 @@ const StartGame = props => {
                     placeholder="Select a Number"
                     keyboardType="number-pad"
                     maxLength={2}
+                    onChangeText={numberInputHandler}
+                    value={enteredValue}
                 />
                 <View style={styles.buttonContainer}>
                     <AwesomeButtonRick
