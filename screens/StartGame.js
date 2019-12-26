@@ -46,10 +46,18 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 20,
+        marginVertical: 20,
     },
     inputFormContainer: {
         width: '100%',
         alignItems: 'center',
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        backgroundColor: 'white',
+        padding: 20,
+        elevation: 8, //For Android Shadows
     },
     textInput: {
         width: '80%',
