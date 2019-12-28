@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Alert, Button } from 'react-native'
 
 import Card from '../components/Card'
 import Input from '../components/Input'
+import NumberContainer from '../components/NumberContainer'
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 const StartGame = props => {
@@ -46,7 +47,21 @@ const StartGame = props => {
     let confirmedOutput;
 
     if (confirmed) {
-        confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>
+        confirmedOutput = (
+            <Card style={styles.summaryContainer}>
+                <Text style={{ fontStyle: 'italic' }}>
+                    Selected Number
+                </Text>
+                <NumberContainer>
+                    {selectedNumber}
+                </NumberContainer>
+                <AwesomeButtonRick
+                    type='anchor'
+                >
+                    START GAME
+                </AwesomeButtonRick>
+            </Card>
+        )
     }
 
     return (
@@ -112,5 +127,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-evenly',
+    },
+    summaryContainer: {
+        marginVertical: 20,
+        alignItems: 'center',
     },
 })
