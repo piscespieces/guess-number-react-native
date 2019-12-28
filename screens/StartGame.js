@@ -18,6 +18,7 @@ const StartGame = props => {
 
     const resetButtonHandler = () => {
         setEnteredValue('')
+        setConfirmed(false)
     }
 
     const confirmButtonHandler = () => {
