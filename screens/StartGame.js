@@ -7,6 +7,8 @@ import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/ric
 
 const StartGame = props => {
     const [enteredValue, setEnteredValue] = useState('')
+    const [confirmed, setConfirmed] = useState(false)
+    const [selectedNumber, setSelectedNumber] = useState()
 
     const numberInputHandler = textInput => {
         return (
@@ -16,6 +18,22 @@ const StartGame = props => {
 
     const resetButtonHandler = () => {
         setEnteredValue('')
+    }
+
+    const confirmButtonHandler = () => {
+        const chosenNumber = Number(enteredValue)
+        if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99) {
+            return
+        }
+        setConfirmed(true)
+        setSelectedNumber(chosenNumber)
+        setEnteredValue('')
+    }
+
+    let confirmedOutput;
+
+    if (confirmed) {
+        confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>
     }
 
     return (
@@ -43,7 +61,7 @@ const StartGame = props => {
 
                         <AwesomeButtonRick
                             title="Confirm"
-                            onPress={() => { }}
+                            onPress={confirmButtonHandler}
                             type="primary"
                             style={styles.confirmButton}
                         >
@@ -51,6 +69,7 @@ const StartGame = props => {
                         </AwesomeButtonRick>
                     </View>
                 </Card>
+                {confirmedOutput}
             </View >
         </TouchableWithoutFeedback>
     )
