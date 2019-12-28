@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
 
 import Card from '../components/Card'
 import Input from '../components/Input'
@@ -24,8 +24,20 @@ const StartGame = props => {
     const confirmButtonHandler = () => {
         const chosenNumber = Number(enteredValue)
         if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99) {
+            Alert.alert(
+                'Invalid Number',
+                'Seems like you provided an invalid number, try again',
+                [
+                    {
+                        text: 'Okay',
+                        style: "destructive",
+                        onPress: resetButtonHandler
+                    }
+                ]
+            )
             return
         }
+
         setConfirmed(true)
         setSelectedNumber(chosenNumber)
         setEnteredValue('')
