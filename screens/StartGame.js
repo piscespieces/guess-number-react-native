@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Button } from 'react-native'
 
 import Card from '../components/Card'
 import Input from '../components/Input'
@@ -12,6 +12,10 @@ const StartGame = props => {
         return (
             setEnteredValue(textInput.replace(/[^0-9]/g, '')) //To sanitize
         )
+    }
+
+    const resetButtonHandler = () => {
+        setEnteredValue('')
     }
 
     return (
@@ -32,11 +36,9 @@ const StartGame = props => {
                     <View style={styles.buttonContainer}>
                         <AwesomeButtonRick
                             title="Reset"
-                            onPress={() => { }}
+                            onPress={resetButtonHandler}
                             type="secondary"
-                            style={styles.resetButton}
-                        >
-                            Reset
+                        >Reset
                         </AwesomeButtonRick>
 
                         <AwesomeButtonRick
