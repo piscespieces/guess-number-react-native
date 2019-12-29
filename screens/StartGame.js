@@ -31,7 +31,7 @@ const StartGame = props => {
                 [
                     {
                         text: 'Okay',
-                        style: "destructive",
+                        style: "default",
                         onPress: resetButtonHandler
                     }
                 ]
@@ -42,6 +42,7 @@ const StartGame = props => {
         setConfirmed(true)
         setSelectedNumber(chosenNumber)
         setEnteredValue('')
+        Keyboard.dismiss()
     }
 
     let confirmedOutput;
@@ -66,7 +67,7 @@ const StartGame = props => {
 
     return (
         <TouchableWithoutFeedback
-            onPress={() => { Keyboard.dismiss() }}
+            onPress={Keyboard.dismiss}
         >
             <View style={styles.screen}>
                 <Text style={styles.headerText}>Start a New Game</Text>
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     textInput: {
-        width: '50%',
+        width: '40%',
+        fontSize: 15,
         marginVertical: 30,
     },
     buttonContainer: {
